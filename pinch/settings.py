@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-savy92-pp4-recipe-blog-b39wo85qts.us2.codeanyapp.com', 'pp4-recipe-blog.herokuapp.com']
+    '8000-savy92-pp4-recipe-blog-b39wo85qts.us2.codeanyapp.com', 'pp4-recipe-blog-5d5c449e069b.herokuapp.com']
 
 
 # Application definition
