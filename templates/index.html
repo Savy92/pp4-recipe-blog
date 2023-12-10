@@ -1,6 +1,5 @@
 {% extends "base.html" %} {% block content %}
 
-
 <div class="container-fluid">
   <div class="row">
     <!-- Blog Entries Column -->
@@ -23,10 +22,13 @@
                 />
                 {% endif %}
                 <div class="image-flash">
-                  <p class="author">Author: {{ recipe.author }}</p>
+                  <p>
+                    Author: {{ recipe.author }} | {{ recipe.estimated_time }}
+                    mins
+                  </p>
                 </div>
               </div>
-              <a href="#" class="recipe-link">
+              <a href="{% url 'recipe_detail' recipe.pk %}" class="recipe-link">
                 <h2 class="card-title">{{ recipe.title }}</h2>
               </a>
               <hr />
