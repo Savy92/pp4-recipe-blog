@@ -28,6 +28,7 @@ class RecipeDetails(View):
             {
                 "recipe": recipe,
                 "comments": comments,
+                "commented": False,
                 "comment_form": comment_form,
                 "liked": liked
             },
@@ -35,7 +36,7 @@ class RecipeDetails(View):
 
     def post(self, request, pk, *args, **kwargs):
         recipe = get_object_or_404(Recipe, pk=pk)
-        comment_form = CommentForm(request.POST)
+        comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
             new_comment.recipe = recipe
@@ -50,6 +51,7 @@ class RecipeDetails(View):
             {
                 "recipe": recipe,
                 "comments": comments,
+                "commented": True,
                 "comment_form": comment_form
             },
         )
