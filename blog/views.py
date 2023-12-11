@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm
@@ -74,6 +74,15 @@ class LikeRecipe(View):
 
 class AddRecipe(CreateView):
     model = Recipe
-    template_name = "add_recipe.html"
+    template_name = 'add_recipe.html'
     fields = ('title', 'author', 'featured_image',
               'content', 'ingredients', 'estimated_time')
+
+
+class EditRecipe(UpdateView):
+    model = Recipe
+    template_name = 'edit_recipe.html'
+    fields = ['title', 'content', 'ingredients', 'estimated_time']
+
+    def get_success_url(self):
+        return reverse('recipe_detail', args=[self.object.pk])
