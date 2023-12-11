@@ -93,7 +93,7 @@
       </div>
     </div>
   </div>
-  <br /><a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+  <br /><a href="{% url 'home' %}" class="btn btn-back">Back</a>
   <div class="row">
     <div class="col">
       <hr />
@@ -105,7 +105,7 @@
       <div class="card-body">
         <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
         {% for comment in comments %}
-        <div class="comments" style="padding: 10px">
+        <div class="comments comment-border">
           <p class="font-weight-bold">
             <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
             {{ comment.author }}
