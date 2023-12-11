@@ -4,6 +4,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm
+from django.urls import reverse_lazy
 
 
 class RecipeList(generic.ListView):
@@ -86,3 +87,9 @@ class EditRecipe(UpdateView):
 
     def get_success_url(self):
         return reverse('recipe_detail', args=[self.object.pk])
+
+
+class DeleteRecipe(DeleteView):
+    model = Recipe
+    template_name = 'delete_recipe.html'
+    success_url = reverse_lazy('home')

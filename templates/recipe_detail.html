@@ -93,10 +93,13 @@
       </div>
     </div>
   </div>
+  <br /><a href="{% url 'home' %}" class="btn btn-general">Back</a>
   <a href="{% url 'edit_recipe' pk=recipe.pk %}" class="btn btn-general"
     >Edit</a
   >
-  <br /><a href="{% url 'home' %}" class="btn btn-general">Back</a>
+  <a href="{% url 'delete_recipe' pk=recipe.pk %}" class="btn btn-general"
+    >Delete</a
+  >
   <div class="row">
     <div class="col">
       <hr />
