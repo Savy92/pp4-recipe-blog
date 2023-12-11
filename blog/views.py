@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
+from django.views.generic import CreateView
 from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm
@@ -69,3 +70,10 @@ class LikeRecipe(View):
             recipe.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('recipe_detail', args=[pk]))
+
+
+class AddRecipe(CreateView):
+    model = Recipe
+    template_name = "add_recipe.html"
+    fields = ('title', 'author', 'featured_image',
+              'content', 'ingredients', 'estimated_time')

@@ -93,7 +93,7 @@
       </div>
     </div>
   </div>
-  <br /><a href="{% url 'home' %}" class="btn btn-back">Back</a>
+  <br /><a href="{% url 'home' %}" class="btn btn-general">Back</a>
   <div class="row">
     <div class="col">
       <hr />
@@ -134,7 +134,7 @@
         <p>Posting as: {{ user.username }}</p>
         <form method="post" style="margin-top: 1.3em">
           {{ comment_form | crispy }} {% csrf_token %}
-          <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+          <button type="submit" class="btn btn-general btn-lg">Submit</button>
         </form>
         {% endif %} {% endif %}
       </div>
