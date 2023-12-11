@@ -1,5 +1,4 @@
-{% extends "base.html" %} 
-{% block head_title %}Sign In{% endblock %} 
+{% extends "base.html" %} {% block head_title %}Sign In{% endblock %} 
 {% block content %}
 <div class="container">
   <div class="row">
@@ -21,7 +20,7 @@
           value="{{ redirect_field_value }}"
         />
         {% endif %}
-        <button class="" type="submit">Sign In</button>
+        <button class="btn btn-general" type="submit">Sign In</button>
       </form>
     </div>
   </div>

@@ -2,8 +2,17 @@ body {
     background-color: #F9FAFC;
 }
 
-.title {
+.navbar-dark .navbar-brand {
     color: #673672;
+    font-size: 36px;
+}
+
+.footer-title {
+    color: #673672;
+}
+
+.social-links a {
+    color: #fff;
 }
 
 .brand {
@@ -86,6 +95,12 @@ body {
     border-radius: 10px;
     background: #673672;
     color: #fff;
+    margin-bottom: 10px;
+}
+
+.btn-like {
+    border: none;
+    background: transparent;
 }
 
 .post-link {
@@ -122,4 +137,8 @@ body {
 .btn-signup:active {
     background-color: #fff;
     color: #673672;
+}
+
+.text-muted {
+    color: #fff !important;
 }
