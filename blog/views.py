@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class RecipeList(generic.ListView):
@@ -73,11 +74,18 @@ class LikeRecipe(View):
         return HttpResponseRedirect(reverse('recipe_detail', args=[pk]))
 
 
-class AddRecipe(CreateView):
+class AddRecipe(LoginRequiredMixin, CreateView):
     model = Recipe
     template_name = 'add_recipe.html'
-    fields = ('title', 'author', 'featured_image',
+    fields = ('title', 'featured_image',
               'content', 'ingredients', 'estimated_time')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('recipe_detail', args=[self.object.pk])
 
 
 class EditRecipe(UpdateView):

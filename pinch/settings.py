@@ -29,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True if os.environ.get('DEVELOPMENT') == "ON" else False
 
 ALLOWED_HOSTS = [
     '8000-savy92-pp4-recipe-blog-b39wo85qts.us2.codeanyapp.com', 'pp4-recipe-blog-5d5c449e069b.herokuapp.com']

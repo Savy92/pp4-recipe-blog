@@ -85,11 +85,7 @@
     <div class="col-md-6 card mb-4 mt-3 left top">
       <div class="card-body">
         <h3>Ingredients:</h3>
-        <ul>
-          {% for ingredient in ingredients %}
-          <li>{{ ingredient }}</li>
-          {% endfor %}
-        </ul>
+        {{ recipe.ingredients }}
       </div>
     </div>
   </div>
@@ -111,11 +107,9 @@
     <div class="col-md-8 card mb-4 mt-3">
       <h3>Comments:</h3>
       <div class="card-body">
-        <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
         {% for comment in comments %}
         <div class="comments comment-border">
           <p class="font-weight-bold">
-            <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
             {{ comment.author }}
             <span class="text-muted font-weight-normal">
               <!-- The comment's created date goes here -->
@@ -133,6 +127,7 @@
       <div class="card-body">
         <!-- Comment section -->
         {% if commented %}
+        <div class="spinner-border text-success" role="status"></div>
         <div class="alert alert-success" role="alert">
           Your comment is awaiting approval
         </div>
