@@ -80,16 +80,13 @@ The Lato font is the main font used throughout the whole website with Sans Serif
 - Allow users to create accounts to personalize their experience.
 - Allow users to long in and out.
 
-
 ### Recipe Upload and Management
 
 - Enable users to upload their own recipes with details such as ingredients, instructions, and estimated time.
 
-
 ### Recipe Exploration
 
 - Implement a paginated list of recipes for the user to view.
-
 
 ### Likes and Comments
 
@@ -99,9 +96,9 @@ The Lato font is the main font used throughout the whole website with Sans Serif
 - Allow users to comment on recipes.
 - Display the number of likes & comments for each recipe.
 
-
 ## Future Enhancements
 
+- Add the option for logged in users to edit and delete their own comments.
 - Advanced Search & Filters: Enhanced search functionalities will allow users to filter recipes based on specific criteria.
 - User Registration and Profiles: Users can create profiles, add avatars, and include a brief bio.
 - Recipe Exploration:
@@ -139,19 +136,25 @@ The Lato font is the main font used throughout the whole website with Sans Serif
 
 ## Testing
 
-![light-house screenshot]
+### Bugs
 
-## Further Testing
+- Ingredients listed do not show in correct format. Tried a if loop, plus an unordered list. Was unable to correct the code.
 
-- Tests were done to make sure the website worked smoothly in different browsers (Google Chrome, Internet Explorer, Microsoft Edge and Safari.)
-- Devtools were used to verify that the website is responsive on different viewports.
-- Tests were done to ensure the sign up form is operational as well as the login form.
+### Responsiveness
 
-<hr>
+- Chrome Developer Tools used to check throughout the development.
 
-## Known Issues
+### Browser Compatibility
 
-- Ingredients listed do not show in correct format.
+- Tests were done to make sure the website worked smoothly in different browsers (Google Chrome, Internet Explorer & Microsoft Edge).
+
+### Validator Testing
+
+- The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors /styling errors in the project. Using PEP 8 validators only files with custom-written Python code have been verified with the validator.
+
+### Lighthouse Results
+
+![light-house screenshot](static/images/lighthouse.png)
 
 <hr>
 
