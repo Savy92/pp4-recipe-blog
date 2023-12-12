@@ -4,7 +4,7 @@
 
 This interactive platform is designed to be an inspiration for those struggling with ideas on what to eat, or if you are simply craving something new and fresh.
 
-![am-i-responsive screenshot]
+![am-i-responsive screenshot](static/images/amiresponsive.png)
 
 <hr>
 
