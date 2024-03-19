@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm
@@ -68,8 +69,10 @@ class LikeRecipe(View):
 
         if recipe.likes.filter(id=request.user.id).exists():
             recipe.likes.remove(request.user)
+            messages.success(request, "You have unliked this post.")
         else:
             recipe.likes.add(request.user)
+            messages.success(request, "You have liked this post, Thanks!")
 
         return HttpResponseRedirect(reverse('recipe_detail', args=[pk]))
 
@@ -82,6 +85,7 @@ class AddRecipe(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        messages.success(self.request, 'Recipe added successfully.')
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -93,6 +97,10 @@ class EditRecipe(UpdateView):
     template_name = 'edit_recipe.html'
     fields = ['title', 'content', 'ingredients', 'estimated_time']
 
+    def form_valid(self, form):
+        messages.success(self.request, 'Recipe updated successfully.')
+        return super().form_valid(form)
+
     def get_success_url(self):
         return reverse('recipe_detail', args=[self.object.pk])
 
@@ -101,3 +109,7 @@ class DeleteRecipe(DeleteView):
     model = Recipe
     template_name = 'delete_recipe.html'
     success_url = reverse_lazy('home')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, 'Recipe deleted successfully.')
+        return super().delete(request, *args, **kwargs)

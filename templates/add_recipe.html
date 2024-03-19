@@ -1,14 +1,59 @@
-{% extends "base.html" %} {% block content %} {% if user.is_authenticated %}
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-      <h1>Add Recipe</h1>
-      <br /><br />
-      <form method="POST">
-        {% csrf_token %} {{form.as_p}}
-        <button class="btn btn-general">Post</button>
-      </form>
+{% extends "base.html" %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+          <h1>Add Recipe</h1>
+          <br /><br />
+          <!-- Form -->
+          <form id="addRecipeForm" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-general">Post</button>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-{% endif %} {% endblock %}
+  {% endif %}
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    // Function to show toast notifications
+    function showToast(message, type) {
+      const toast = document.createElement('div');
+      toast.classList.add('toast', `bg-${type}`);
+      toast.textContent = message;
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.remove();
+      }, 3000);
+    }
+
+    // Submit form event listener
+    document.getElementById('addRecipeForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+      const form = event.target;
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'X-CSRFToken': form.querySelector('input[name="csrfmiddlewaretoken"]').value
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          showToast('Recipe added successfully.', 'success');
+          form.reset(); // Reset form on successful submission
+        } else {
+          showToast('Failed to add recipe. Please try again.', 'danger');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        showToast('An error occurred. Please try again later.', 'danger');
+      });
+    });
+  </script>
+{% endblock %}

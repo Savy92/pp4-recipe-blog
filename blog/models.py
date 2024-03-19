@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.urls import reverse
+from django.core.validators import MinValueValidator
 
 
 class UserProfile(models.Model):
@@ -23,7 +24,7 @@ class Recipe(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     ingredients = models.TextField()
-    estimated_time = models.IntegerField("Estimated time")
+    estimated_time = models.IntegerField("Estimated time", validators=[MinValueValidator(5)])
     likes = models.ManyToManyField(
         User, related_name='liked_recipes', blank=True)
 
