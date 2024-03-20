@@ -136,6 +136,106 @@ The Lato font is the main font used throughout the whole website with Sans Serif
 
 ## Testing
 
+### Manual Testing
+
+| Epic                  | User Story               | Description                                                                                      | Manual Testing | Test Result |
+|-----------------------|--------------------------|--------------------------------------------------------------------------------------------------|----------------|-------------|
+| User Management       | User Registration        | As a User, I can register an account so that I can comment & like posts.                         | ✅              | Passed      |
+| User Management       | User Authentication      | As a Site User, I can log in or out so that I can interact with the posts.                       | ✅              | Passed      |
+| User Management       | User Profile             | As a Site User, I can add or edit my profile picture so that I can have an identity on the site. | ❌              | Failed     |
+| Admin Panel           | Manage Content           | As a Site Admin, I can approve or disapprove comments so that the content is suitable.           | ✅              | Passed      |
+| Admin Panel           | Manage Post              | As a Site Admin, I can create, read, update and delete posts.                                     | ✅              | Passed      |
+| Interaction & Engagement | View Post              | As a Site User, I can view a list of posts so that I can select one to read.                     | ✅              | Passed      |
+| Interaction & Engagement | Post Details           | As a Site User, I can click on a post so that I can read the full recipe.                        | ✅              | Passed      |
+| Interaction & Engagement | Like a Post            | As a Site User, I can like or unlike a post to interact with the content.                        | ✅              | Passed      |
+| Interaction & Engagement | Comment on Recipe      | As a Site User, I can leave comments on a post to be involved in the conversation.                | ✅              | Passed      |
+| Interaction & Engagement | Read Comments          | As a Site User / Admin, I can view comments on an individual post.                                | ✅              | Passed      |
+| Recipe Management      | Add Recipe               | As a Site User, I can add a recipe when logged in to add to my profile.                          | ✅              | Passed      |
+| Recipe Management      | Edit / Delete Recipes   | As a Site User, I can delete/edit my own recipe post whilst logged in.                            | ✅              | Passed      |
+
+### Features Testing
+
+In addition to the manual testing, i have conducted further test on the different features of the website to make sure everything works as intended.
+
+#### Navigation Bar - User Logged Out
+
+| Status | Feature                                                      |
+|--------|--------------------------------------------------------------|
+| ✓      | Clicking the navbar logo loads the home page                 | 
+| ✓      | Navbar shows nav links for Recipes, Login & SignUp Register  |
+| ✓      | Clicking the Recipe tab on the navbar loads the recipe page      |
+| ✓      | Clicking the Login tab on the navbar loads the Login page & form    |
+| ✓      | Clicking the SignUp tab on the navbar loads the SignUp page & form      |
+| ✓      | Mobile view shows navigation in burger menu |
+| ✓      | An alert message is displayed confirming they have logged out |
+
+#### Navigation Bar - User Logged In
+
+| Status | Feature                                                                    |
+|--------|----------------------------------------------------------------------------|
+| ✓      | Navbar operations load the relevant page as described for user logged out |
+| ✓      | Navbar shows the Pinch logo, Recipes, Add Recipe & Logout tabs |
+| ✓      | Clicking the Logout tab on the navbar loads the logout page |
+| ✓      | Mobile view shows navigation in burger menu |
+| ✓      | An alert message is displayed confirming they have logged in |
+
+#### Footer - User Logged Out/In
+
+| Status | Feature                                     |
+|--------|---------------------------------------------|
+| ✓      | Clicking the Facebook/icon loads Facebook   |
+| ✓      | Clicking the Twitter/icon loads Twitter     |
+| ✓      | Clicking the Instagram/icon loads Instagram |
+| ✓      | Clicking the Youtube/icon loads Youtube     |
+
+#### Recipes Page
+
+| Status | Feature                                                |
+|--------|--------------------------------------------------------|
+| ✓      | Shows recipes posts paginated by 6 posts; prev/next works |
+| ✓      | Clicking on the post title loads the detail of recipe page |
+| ✓      | Mobile view shows recipes post paginated by 6 posts |
+
+#### Recipe Detail Page
+
+| Status | Feature                                                     |
+|--------|-------------------------------------------------------------|
+| ✓      | Shows the full content of the recipe                         |
+| ✓      | Shows a list of comments posted so far             |
+| ✓      | Comment box is visible when signed in only        |
+| ✓      | Like icon works only when the user is logged in      |
+| ✓      | Edit/delete buttons are visible only for user's own recipe     |
+| ✓      | Back button visible & directs the user back to the recipes page   |
+| ✓      | Comment box not visible when not logged in     |
+| ✓      | Cannot like a recipe when not logged in      |
+
+#### Add a Recipe - User Logged In
+
+| Status | Feature                                                                     |
+|--------|-----------------------------------------------------------------------------|
+| ✓      | All required fields are validated                                           |
+| ✓      | Form submission creates a post author field automatically                   |
+| ✓      | User is redirected to the 'Recipes page' with a success message after posting  |
+
+#### Edit Post - User Logged In
+
+| Status | Feature                                                         |
+|--------|-----------------------------------------------------------------|
+| ✓      | User can see content input field already populated                 |
+| ✓      | Clicking Update button, updates the recipe content                |
+| ✓      | Estimated time cannot go into negative numbers             |
+| ✓      | An alert message informs the user that their recipe was updated   |
+
+#### Delete Recipe - User Logged In
+
+| Status | Feature                                                                   |
+|--------|---------------------------------------------------------------------------|
+| ✓      | User can see a confirmation message with recipe title for deletion request |
+| ✓      | Clicking the Delete button redirects back to the recipes list page      |
+| ✓      | An alert message informs the user of successful post deletion             |
+| ✓      | The post is completely deleted from the database and the website         |
+
+
 ### Bugs
 
 - Ingredients listed do not show in correct format. Tried a if loop, plus an unordered list. Was unable to correct the code.
@@ -151,6 +251,20 @@ The Lato font is the main font used throughout the whole website with Sans Serif
 ### Validator Testing
 
 - The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors /styling errors in the project. Using PEP 8 validators only files with custom-written Python code have been verified with the validator.
+
+#### HTML Validation
+
+- Result for [home page](./assets/testing/W3C-home-page.png)
+ - Result for [login page](./assets/testing/W3C-login-page.png)
+ - Result for [logout page](./assets/testing/W3C-logout-page.png)
+ - Result for [signup page](./assets/testing/W3C-signup-page.png)
+ - Result for [add recipe page](./assets/testing/W3C-add-recipe-page.png)
+ - Result for [edit recipe page](./assets/testing/W3C-edit-recipe-page.png)
+ - Result for [delete recipe page](./assets/testing/W3C-delete-recipe-page.png)
+
+ #### CSS Validation 
+
+ - The result can be seen [here](./assets/testing/css-validator.png).
 
 ### Lighthouse Results
 
